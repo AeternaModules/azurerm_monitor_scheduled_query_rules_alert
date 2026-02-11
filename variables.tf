@@ -41,10 +41,10 @@ EOT
     resource_group_name     = string
     time_window             = number
     authorized_resource_ids = optional(set(string))
-    auto_mitigation_enabled = optional(bool, false)
+    auto_mitigation_enabled = optional(bool) # Default: false
     description             = optional(string)
-    enabled                 = optional(bool, true)
-    query_type              = optional(string, "ResultCount")
+    enabled                 = optional(bool)   # Default: true
+    query_type              = optional(string) # Default: "ResultCount"
     severity                = optional(number)
     tags                    = optional(map(string))
     throttling              = optional(number)
