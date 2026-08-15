@@ -4,7 +4,7 @@ output "monitor_scheduled_query_rules_alerts_id" {
 }
 output "monitor_scheduled_query_rules_alerts_action" {
   description = "Map of action values across all monitor_scheduled_query_rules_alerts, keyed the same as var.monitor_scheduled_query_rules_alerts"
-  value       = { for k, v in azurerm_monitor_scheduled_query_rules_alert.monitor_scheduled_query_rules_alerts : k => v.action if v.action != null && length(v.action) > 0 }
+  value       = { for k, v in azurerm_monitor_scheduled_query_rules_alert.monitor_scheduled_query_rules_alerts : k => one(v.action) if v.action != null && length(v.action) > 0 }
 }
 output "monitor_scheduled_query_rules_alerts_authorized_resource_ids" {
   description = "Map of authorized_resource_ids values across all monitor_scheduled_query_rules_alerts, keyed the same as var.monitor_scheduled_query_rules_alerts"
@@ -68,6 +68,6 @@ output "monitor_scheduled_query_rules_alerts_time_window" {
 }
 output "monitor_scheduled_query_rules_alerts_trigger" {
   description = "Map of trigger values across all monitor_scheduled_query_rules_alerts, keyed the same as var.monitor_scheduled_query_rules_alerts"
-  value       = { for k, v in azurerm_monitor_scheduled_query_rules_alert.monitor_scheduled_query_rules_alerts : k => v.trigger if v.trigger != null && length(v.trigger) > 0 }
+  value       = { for k, v in azurerm_monitor_scheduled_query_rules_alert.monitor_scheduled_query_rules_alerts : k => one(v.trigger) if v.trigger != null && length(v.trigger) > 0 }
 }
 
